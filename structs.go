@@ -16,6 +16,10 @@ func main() {
 		created time.Time
 	}
 
+	outputDetails(firstName, lastName, birthdate)
+}
+
+func outputDetails(firstName, lastName, birthdate string) {
 	fmt.Println(firstName, lastName, birthdate)
 }
 
