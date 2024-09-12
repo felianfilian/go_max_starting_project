@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func main() {
@@ -9,7 +10,11 @@ func main() {
 	lastName := getUserData("Please enter your last name: ")
 	birthdate := getUserData("Please enter your birthdate (MM/DD/YYYY): ")
 
-	// ... do something awesome with that gathered data!
+	type User struct {
+		firstname string
+		lastname string
+		created time.Time
+	}
 
 	fmt.Println(firstName, lastName, birthdate)
 }
