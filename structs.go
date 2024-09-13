@@ -7,7 +7,6 @@ import (
 
 type User struct {
 	firstname string
-	lastname string
 	created time.Time
 }
 
@@ -15,19 +14,23 @@ func (u User) outputDetails() {
 	fmt.Println(u.firstname)
 }
 
+func (u *User) clearUserData() {
+	u.firstname = ""
+}
+
 func main() {
 	firstName := getUserData("Please enter your first name: ")
-	lastName := getUserData("Please enter your last name: ")
 	// created := getUserData("Please enter your birthdate (MM/DD/YYYY): ")
 
 	var user User
 	
 	user = User{
 		firstname: firstName,
-		lastname: lastName,
 		created: time.Now(),
 	}
 
+	user.outputDetails()
+	user.clearUserData()
 	user.outputDetails()
 }
 
