@@ -10,8 +10,16 @@ type User struct {
 	created time.Time
 }
 
+func newUser(firstname string) *User {
+	return &User {
+		firstname: firstname,
+		created: time.Now(),
+	}
+}
+
 func (u User) outputDetails() {
 	fmt.Println(u.firstname)
+	fmt.Println(u.created)
 }
 
 func (u *User) clearUserData() {
@@ -22,16 +30,11 @@ func main() {
 	firstName := getUserData("Please enter your first name: ")
 	// created := getUserData("Please enter your birthdate (MM/DD/YYYY): ")
 
-	var user User
-	
-	user = User{
-		firstname: firstName,
-		created: time.Now(),
-	}
+	var user *User = newUser(firstName)
 
 	user.outputDetails()
 	user.clearUserData()
-	user.outputDetails()
+	//user.outputDetails()
 }
 
 
