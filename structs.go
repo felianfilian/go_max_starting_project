@@ -2,24 +2,29 @@ package main
 
 import (
 	"fmt"
+	"structs/user"
 )
 
 
 
 func main() {
-	firstName := getUserData("Please enter your first name: ")
+	userFirstName := getUserData("Please enter your first name: ")
 	// created := getUserData("Please enter your birthdate (MM/DD/YYYY): ")
 
-	var user *User
-	user, err := newUser(firstName)
+	var appUser *user.User
+	appUser, err := user.NewUser(userFirstName )
+	
+	
+	//user, err = &user.User()
+
 
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	user.outputDetails()
-	user.clearUserData()
+	appUser.OutputDetails()
+	appUser.ClearUserData()
 	//user.outputDetails()
 }
 

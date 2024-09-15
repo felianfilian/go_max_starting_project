@@ -1,9 +1,17 @@
+package user
+
+import (
+	"errors"
+	"fmt"
+	"time"
+)
+
 type User struct {
 	firstname string
 	created time.Time
 }
 
-func newUser(firstname string) (*User, error) {
+func NewUser(firstname string) (*User, error) {
 	if firstname == "" {
 		return nil, errors.New("firstname needed")
 	} else {
@@ -14,11 +22,11 @@ func newUser(firstname string) (*User, error) {
 	}
 }
 
-func (u User) outputDetails() {
+func (u *User) OutputDetails() {
 	fmt.Println(u.firstname)
 	fmt.Println(u.created)
 }
 
-func (u *User) clearUserData() {
+func (u *User) ClearUserData() {
 	u.firstname = ""
 }
