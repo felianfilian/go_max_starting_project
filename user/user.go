@@ -11,6 +11,12 @@ type User struct {
 	created time.Time
 }
 
+
+type Admin struct {
+	email string
+	User
+}
+
 func NewUser(firstname string) (*User, error) {
 	if firstname == "" {
 		return nil, errors.New("firstname needed")
@@ -19,6 +25,15 @@ func NewUser(firstname string) (*User, error) {
 			firstname: firstname,
 			created: time.Now(),
 		}, nil
+	}
+}
+
+func newAdmin(email string) Admin{
+	return Admin {
+		email: email,
+		User: User {
+			firstname: "Admin",
+		},
 	}
 }
 
