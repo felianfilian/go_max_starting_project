@@ -20,6 +20,7 @@ func main() {
 	}
 
 	admin := user.NewAdmin("test@exmp.to")
+	admin.ClearUserData()
 
 	appUser.OutputDetails()
 	appUser.ClearUserData()
