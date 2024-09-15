@@ -28,7 +28,7 @@ func NewUser(firstname string) (*User, error) {
 	}
 }
 
-func newAdmin(email string) Admin{
+func NewAdmin(email string) Admin{
 	return Admin {
 		email: email,
 		User: User {
